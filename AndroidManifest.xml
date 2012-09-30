@@ -1,0 +1,76 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kevingil.gwhs"
+    android:versionCode="1"
+    android:versionName="3.8beta" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.Kevin" > <!-- Sherlock is to show the title as white -->
+        <!-- parent activity -->
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- after this are the other activities -->
+
+        <activity
+            android:name=".SchoolloopActivity"
+            android:label="@string/title_activity_schoolloop"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kevingil.gwhs.Home" />
+        </activity>
+        <activity
+            android:name=".BellScheduleActivity"
+            android:label="@string/title_activity_bell_schedule"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kevingil.gwhs.Home" />
+        </activity>
+        <activity
+            android:name=".AboutDeveloper"
+            android:label="@string/title_activity_about_developer"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kevingil.gwhs.Home" />
+        </activity>
+        <activity
+            android:name=".FacebookGroupsActivity"
+            android:label="@string/title_activity_facebook_groups"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kevingil.gwhs.Home" />
+        </activity>
+        <activity
+            android:name=".DailyBulletin"
+            android:label="@string/title_activity_daily_bulletin" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kevingil.gwhs.Home" />
+        </activity>
+    </application>
+
+</manifest>
