@@ -26,11 +26,13 @@ public class MyWebViewClient extends WebViewClient {
             context.startActivity(i);
             return true;
         }
+        
         if(url.equals("kevin://openDailyBulletinActivity")){
             Intent i = new Intent(context, DailyBulletin.class);
             context.startActivity(i);
             return true;
         }
+        
         if(url.equals("kevin://openFacebookGroupsActivity")){
             Intent i = new Intent(context, FacebookGroupsActivity.class);
             context.startActivity(i);
