@@ -28,6 +28,8 @@ public class AboutDeveloper extends SherlockActivity {
         // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewAboutDeveloper);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "le loading... lol", true);
+        myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
+        myWebView.setBackgroundColor(0);
         myWebView.loadUrl("file:///android_asset/aboutdeveloper.html");
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         WebViewSettings = myWebView.getSettings();

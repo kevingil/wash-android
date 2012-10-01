@@ -38,6 +38,8 @@ public class SchoolloopActivity extends SherlockActivity {
         // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewSchoolloop);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "le loading... lol", true);
+        myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
+        myWebView.setBackgroundColor(0);
         myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/mobile/index");
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         // settings 

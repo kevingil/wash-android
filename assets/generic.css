@@ -12,12 +12,13 @@ div#scroller{
 body{
 	height:100%;
 	margin:0px;
-	background-color: #505050;
+	background-color: none;
 	/*
     background-image:url('file:///android_assets/dark_gray_bg.png');
 	background-image:url('dark_gray_bg.png');
     background-repeat:repeat;
- */   	-webkit-user-select:none;
+ */ 
+    -webkit-user-select:none;
     -webkit-text-size-adjust:none;
     margin: 0;
     padding: 0;
@@ -68,6 +69,11 @@ div#footer{
 }
 div#footer a{
 	font-family:'Arial';
+	color:#c3c3c3;
+}
+div#footer p{
+	font-family:'Arial';
+	color:#c3c3c3;
 }
 div.listitem{
 	font-family:'Arial';

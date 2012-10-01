@@ -23,6 +23,8 @@ public class FacebookGroupsActivity extends SherlockActivity {
         // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewFacebookGroups);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading..", true);
+        myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
+        myWebView.setBackgroundColor(0);
         myWebView.loadUrl("file:///android_asset/facebookgroups.html");
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         WebSettings webSettings = myWebView.getSettings();

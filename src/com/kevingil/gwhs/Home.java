@@ -1,6 +1,7 @@
 package com.kevingil.gwhs;
 
 
+
 import com.actionbarsherlock.app.SherlockActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -28,6 +29,8 @@ public class Home extends SherlockActivity  {
         // getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
         myWebView = (WebView) findViewById(R.id.webViewHome);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading...", true);
+        myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
+        myWebView.setBackgroundColor(0);
         myWebView.loadUrl("file:///android_asset/home.html");  
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         // settings 
