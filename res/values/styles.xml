@@ -6,7 +6,7 @@
        <item name="homeAsUpIndicator">@drawable/back_button</item> -->
     </style>
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar">
-       <item name="background">@drawable/black_textured</item>
-       <item name="android:background">@drawable/black_textured</item>
+       <item name="background">@drawable/background_1</item>
+       <item name="android:background">@drawable/background_1</item>
     </style>
 </resources>

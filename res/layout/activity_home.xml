@@ -7,7 +7,15 @@
     android:background="@drawable/light_gray_bg"
     android:gravity="top"
     android:orientation="vertical" >
-
+<TextView
+    android:id="@+id/action_custom_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="WASH"
+    android:textColor="#fff"
+    android:textSize="18sp" />
+    
+    
     <WebView
         android:id="@+id/webViewHome"
         android:layout_width="match_parent"
