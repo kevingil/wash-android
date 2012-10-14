@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<style></style>
+    <script src="file:///android_assets/jquery.js"></script>
+    <script src="jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="generic.css"/>
+    
+
+
+</head>
+<body>
+<div id="homecontainter">
+    <div id="subcontainterleft">
+        <div align="center">
+    <a class="imglistitem" href="javascript:void(0)" onclick="location.href=('kevin://openSchoolloopActivity');">
+    <img class="imgitem" src="schoolloop_logo.png"/>
+    <p>Schoolloop Login</p>
+    </a>
+    <a class="imglistitem" href="javascript:void(0)" onclick="location.href=('kevin://openBellScheduleActivity');">
+    <img class="imgitem" src="clock.png"/>
+    <p>Bellschedule</p>
+    </a>
+    <a class="imglistitem" href="javascript:void(0)" onclick="location.href=('kevin://openAboutDeveloperActivity');">
+    <img class="imgitem" src="about_logo.png"/>
+    <p>About</p>
+    </a>
+        </div>
+    </div>
+    <div id="subcontainterright">
+        <div align="center">
+    <a class="imglistitem" href="javascript:void(0)" onclick="location.href=('kevin://openDailyBulletinActivity');">
+    <img class="imgitem" src="db.png"/>
+    <p>Daily Bulletin</p>
+    </a>
+    <a class="imglistitem" href="javascript:void(0)" onclick="location.href=('kevin://openFacebookGroupsActivity');">
+    <img class="imgitem" src="groups.png"/>
+    <p>Groups</p>
+    </a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$("img.imgitem").onfocus(function() {
+  document.getElementsByClass.('imgitem').setAttribute("style", "height:22%;");
+}
+$("img.imgitem").onblur(function() {
+  document.getElementsByClass.('imgitem').setAttribute("style", "height:22%;");
+}
+
+</script>
+
+
+<!--    
+<div id="updaterdiv" align="center">
+<a id="showupdater" href="http://kevingil.github.com/dl/wash/update.html"style="font-size:15px;color:black;
+text-decoration:none;">Check For Updates!</a></div>
+-->
+<!--
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#maincontainer").overscroll();
+});
+
+
+$("a#showupdater").click(function () {
+if ($("div#updateriframe:first").is(":hidden")) {
+$("div#updateriframe").slideDown("fast");
+$("div#updaterdiv").hide("fast");
+} else {}
+});
+
+$("a#hideupdater").click(function () {
+if ($("div#updaterdiv:first").is(":hidden")) {
+$("div#updaterdiv").show("slow");
+$("div#updateriframe").slideUp("fast");
+} else {}
+});
+
+</script>
+-->
+</body>
