@@ -1,5 +1,5 @@
 <resources>
-    
+
     <string name="app_name">WASH</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
@@ -12,5 +12,6 @@
     <string name="title_activity_about_developer">About Developer</string>
     <string name="title_activity_facebook_groups">Facebook Groups</string>
     <string name="title_activity_daily_bulletin">Daily Bulletin</string>
-    
+    <string name="title_activity_splash">Splash</string>
+
 </resources>
