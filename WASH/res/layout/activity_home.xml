@@ -4,9 +4,9 @@
     android:id="@+id/HomeLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/airlight"
     android:gravity="top"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#222222">
     <WebView
         android:id="@+id/webViewHome"
         android:layout_width="match_parent"

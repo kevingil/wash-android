@@ -13,5 +13,6 @@
     <string name="title_activity_facebook_groups">Facebook Groups</string>
     <string name="title_activity_daily_bulletin">Daily Bulletin</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_schoolloop_webclient">schoolloop_webclient</string>
 
 </resources>

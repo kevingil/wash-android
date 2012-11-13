@@ -15,7 +15,8 @@ public class MyWebViewClient extends WebViewClient {
     
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-    	// the url can be as random as "kevin://whatever" this url has to be the url that the html link(that will open the activity) has
+    	// the url can be as random as "kevin://whatever" this url has
+    	//to be the url that the html link(that will open the activity) has
         if(url.equals("kevin://openSchoolloopActivity")){
             Intent i = new Intent(context, SchoolloopActivity.class);
             context.startActivity(i);
@@ -40,6 +41,11 @@ public class MyWebViewClient extends WebViewClient {
         }
         if(url.equals("kevin://openAboutDeveloperActivity")){
             Intent i = new Intent(context, AboutDeveloper.class);
+            context.startActivity(i);
+            return true;
+        }
+        if(url.equals("http://www.gwhs-sfusd-ca.schoolloop.com/")){
+            Intent i = new Intent(context, Home.class);
             context.startActivity(i);
             return true;
         }

@@ -2,8 +2,9 @@ package com.kevingil.gwhs;
 
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,15 +15,11 @@ import android.view.KeyEvent;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-
-
-
-/// this all works so dont move for now :)
+import com.kevingil.gwhs.R;
 
 public class SchoolloopActivity extends SherlockActivity {
-	// some variables here:
+	
     WebView myWebView;
 	ProgressBar progressBar;
 	WebSettings WebViewSettings;
@@ -33,9 +30,6 @@ public class SchoolloopActivity extends SherlockActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schoolloop);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // this changes the background color of the action bar
-       //  getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
-        // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewSchoolloop);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "loading...", "Your password will not be saved", true);
         //myWebView.setBackgroundResource(R.drawable.lightgray3);
@@ -47,7 +41,7 @@ public class SchoolloopActivity extends SherlockActivity {
         WebViewSettings.setSavePassword(true);
         WebViewSettings.setSaveFormData(true);
         WebViewSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient(){
+        myWebView.setWebViewClient(new SchoolloopWebclientActivity(this){
     	   @Override
     	   public void onPageFinished(WebView view, String url){
     		   webViewProgress.dismiss();
@@ -65,16 +59,6 @@ public class SchoolloopActivity extends SherlockActivity {
            }
    });
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override // this is to use go back buttom to navigate in webview history, to exit the webview people will use the back button on actionbar
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()){
@@ -83,4 +67,29 @@ public class SchoolloopActivity extends SherlockActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            case R.id.schoolloop_refresh:
+            	myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/mobile/index");
+            	return true;
+            case R.id.schoolloop_logout:
+            	myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/portal/logout");
+            	myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/mobile/index");
+            	return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater = this.getSupportMenuInflater();
+       inflater.inflate(R.layout.schoolloop_menu, menu);
+       return true;
+    }
 }
+
+
+

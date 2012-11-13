@@ -1,12 +1,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="Theme.Kevin" parent="Theme.Sherlock.Light.DarkActionBar">
+    <style name="Theme.Kevin" parent="Theme.Sherlock">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:homeAsUpIndicator">@drawable/back_button</item>
        <item name="homeAsUpIndicator">@drawable/back_button</item> -->
     </style>
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar">
-       <item name="background">@drawable/red_line</item>
-       <item name="android:background">@drawable/red_line</item>
+       <item name="background">@drawable/action_bar_background_black_dark</item>
+       <item name="android:background">@drawable/action_bar_background_black_dark</item>
     </style>
 </resources>

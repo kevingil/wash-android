@@ -1,20 +1,10 @@
 html{
 	height:100%;
 }
-body{
-	height:100%;
-}
 /* ONLY the wrapper is supposed to be 100%! if the scroller is 100 it wont scroll */
-div#wrapper{
-	height: 100%;
-}
-div#scroller{
-	
-}
 body{
 	height:100%;
 	margin:0px;
-	background-color: none;
 	/*
     background-image:url('file:///android_assets/dark_gray_bg.png');
 	background-image:url('dark_gray_bg.png');
@@ -27,7 +17,9 @@ body{
 }
 p {
 color:black;
-font-family:'Arial';}
+font-family:'Arial';
+
+}
 
 a:link {
 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);	 
@@ -70,6 +62,7 @@ div#listview{
 }
 div#footer{
 	padding-top:0px;
+	bottom: 20px;
 	top:0px;
 }
 div#footer a{
@@ -85,13 +78,16 @@ div.listitem{
 }
 .boxbg {
 	background-color: white;
-}
+} 
 .all-round {
 border-radius:.6em;
 -moz-border-radius:.6em;
 -webkit-border-radius:.6em;
+-0-border-radius:.6em;
+/*
 -moz-box-shadow: 0 0 30px 5px #999;
 -webkit-box-shadow: 0 0 30px 5px #999;
+*/
 }
 img.listicon{
 	height: 1.5em;
@@ -159,10 +155,6 @@ a.listitem{
 
 
 /* HOME STYLE ONLY */
-#homecontainter{
-	width:100%;
-}
-
 #subcontainterleft{
 	width:50%;
 	height:100%;
@@ -171,11 +163,12 @@ a.listitem{
 #subcontainterright{
 	width:50%;
 	height:100%;
-	float:right;
+	float: right;
+	
 }
  img.imgitem{
- 	padding-top:7%;
- 	height:20%;
+ 	padding-top:0%;
+ 	height:25%;
  }
 a.imglistitem{
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);	
@@ -184,4 +177,5 @@ a.imglistitem{
 	font-weight:bold;
 	text-decoration:none;
 	font-family: Arial;
+	width:50%;
 }

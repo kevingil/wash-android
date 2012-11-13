@@ -10,6 +10,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
+/*
+import android.view.MotionEvent;
+import android.view.View;
+*/
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -29,11 +33,8 @@ public class Home extends SherlockActivity  {
         setContentView(R.layout.activity_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         // this changes the background color of the action bar
-        // getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
         myWebView = (WebView) findViewById(R.id.webViewHome);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading...", true);
-        //myWebView.setBackgroundColor(0);
-        //myWebView.setBackgroundResource(R.drawable.lightgray3);
         myWebView.loadUrl("file:///android_asset/home.html");  
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         // settings 
@@ -58,6 +59,14 @@ public class Home extends SherlockActivity  {
             }
     });
         /*
+        myWebView.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+              return (event.getAction() == MotionEvent.ACTION_MOVE);
+            }
+          });
+        
+        */
+        /*
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -70,6 +79,7 @@ public class Home extends SherlockActivity  {
         getSupportActionBar().setCustomView(customView);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         */
+        
         
 
     }
@@ -93,4 +103,6 @@ public class Home extends SherlockActivity  {
             return false;
         }
     }
+    
+
 }
