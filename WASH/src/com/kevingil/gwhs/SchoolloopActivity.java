@@ -23,10 +23,11 @@ public class SchoolloopActivity extends SherlockActivity {
     WebView myWebView;
 	ProgressBar progressBar;
 	WebSettings WebViewSettings;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-    	        this.setTheme(com.actionbarsherlock.R.style.Theme_Kevin);}
+    	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+      	     this.setTheme(com.kevingil.gwhs.R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schoolloop);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,6 +80,10 @@ public class SchoolloopActivity extends SherlockActivity {
             case R.id.schoolloop_logout:
             	myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/portal/logout");
             	myWebView.loadUrl("https://gwhs-sfusd-ca.schoolloop.com/mobile/index");
+            	return true;
+            case R.id.menu_about:
+                Intent i = new Intent(this, AboutDeveloper.class);
+                this.startActivity(i);
             	return true;
         }
         return super.onOptionsItemSelected(item);

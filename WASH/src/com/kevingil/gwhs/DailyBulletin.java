@@ -2,9 +2,11 @@ package com.kevingil.gwhs;
 
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -28,8 +30,8 @@ public class DailyBulletin extends SherlockActivity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-    	        this.setTheme(com.actionbarsherlock.R.style.Theme_Kevin);}
+    	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+      	     this.setTheme(com.kevingil.gwhs.R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_bulletin);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -97,8 +99,18 @@ public class DailyBulletin extends SherlockActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
+            case R.id.menu_about:
+                Intent i = new Intent(this, AboutDeveloper.class);
+                this.startActivity(i);
+            	return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater = this.getSupportMenuInflater();
+       inflater.inflate(R.menu.menu_main, menu);
+       return true;
     }
 
 

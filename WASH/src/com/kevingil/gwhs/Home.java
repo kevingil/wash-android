@@ -4,6 +4,9 @@ package com.kevingil.gwhs;
 
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -28,7 +31,7 @@ public class Home extends SherlockActivity  {
 	
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-	     this.setTheme(com.actionbarsherlock.R.style.Theme_Kevin);}
+      	     this.setTheme(com.kevingil.gwhs.R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -57,30 +60,7 @@ public class Home extends SherlockActivity  {
            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                     startActivity(intent);
             }
-    });
-        /*
-        myWebView.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-              return (event.getAction() == MotionEvent.ACTION_MOVE);
-            }
-          });
-        
-        */
-        /*
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View customView = inflater.inflate(R.layout.custom_text, null);
-
-        titleTV = (TextView) customView.findViewById(R.id.action_custom_title);
-        titleTV.setGravity(Gravity.CENTER);
-        // you can apply a custom typeface here or do sth else...
-
-        getSupportActionBar().setCustomView(customView);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        */
-        
-        
+    });       
 
     }
     @Override // this is to use go back buttom to navigate in webview history, to exit the webview people will use the back button
@@ -102,6 +82,22 @@ public class Home extends SherlockActivity  {
         } else {
             return false;
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater = this.getSupportMenuInflater();
+       inflater.inflate(R.menu.menu_main, menu);
+       return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_about:
+                Intent i = new Intent(this, AboutDeveloper.class);
+                this.startActivity(i);
+            	return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     
 
