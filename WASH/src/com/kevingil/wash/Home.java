@@ -1,4 +1,4 @@
-package com.kevingil.gwhs;
+package com.kevingil.wash;
 
 
 
@@ -7,6 +7,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.kevingil.wash.R;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,7 +33,7 @@ public class Home extends SherlockActivity  {
 	
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-      	     this.setTheme(com.kevingil.gwhs.R.style.Theme_Kevin);}
+      	     this.setTheme(com.kevingil.wash.R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

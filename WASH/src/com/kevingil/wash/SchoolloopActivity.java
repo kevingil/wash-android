@@ -1,4 +1,4 @@
-package com.kevingil.gwhs;
+package com.kevingil.wash;
 
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -16,7 +16,6 @@ import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
-import com.kevingil.gwhs.R;
 
 public class SchoolloopActivity extends SherlockActivity {
 	
@@ -27,7 +26,7 @@ public class SchoolloopActivity extends SherlockActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-      	     this.setTheme(com.kevingil.gwhs.R.style.Theme_Kevin);}
+      	     this.setTheme(com.kevingil.wash.R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schoolloop);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

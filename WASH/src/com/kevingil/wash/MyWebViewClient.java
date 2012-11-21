@@ -1,4 +1,4 @@
-package com.kevingil.gwhs;
+package com.kevingil.wash;
 
 import android.content.Context;
 import android.content.Intent;
