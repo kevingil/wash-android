@@ -15,7 +15,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class FacebookGroupsActivity extends SherlockActivity {
+public class Social extends SherlockActivity {
 	WebView myWebView;
     
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class FacebookGroupsActivity extends SherlockActivity {
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading..", true);
         //myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
         myWebView.setBackgroundColor(0);
-        myWebView.loadUrl("file:///android_asset/facebookgroups.html");
+        myWebView.loadUrl("http://kevingil.github.com/wash/social.html");
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setSavePassword(true);

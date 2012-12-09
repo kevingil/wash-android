@@ -68,7 +68,7 @@
         </activity>
         
         <activity
-            android:name=".FacebookGroupsActivity"
+            android:name="com.kevingil.wash.Social"
             android:label="@string/title_activity_facebook_groups"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" >

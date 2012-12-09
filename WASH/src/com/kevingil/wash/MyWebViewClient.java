@@ -35,7 +35,7 @@ public class MyWebViewClient extends WebViewClient {
         }
         
         if(url.equals("kevin://openFacebookGroupsActivity")){
-            Intent i = new Intent(context, FacebookGroupsActivity.class);
+            Intent i = new Intent(context, Social.class);
             context.startActivity(i);
             return true;
         }
