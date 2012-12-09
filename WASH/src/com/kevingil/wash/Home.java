@@ -5,8 +5,8 @@ package com.kevingil.wash;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.MenuInflater;
 import com.kevingil.wash.R;
 
 import android.app.ProgressDialog;
