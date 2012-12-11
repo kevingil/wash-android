@@ -3,12 +3,10 @@ package com.kevingil.wash;
 
 
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.MenuInflater;
-import com.kevingil.wash.R;
-
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,7 +23,7 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class Home extends SherlockActivity  {
+public class Home extends Activity  {
     WebView myWebView;
 	ProgressBar progressBar;
 	WebSettings WebViewSettings;
@@ -33,10 +31,10 @@ public class Home extends SherlockActivity  {
 	
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-      	     this.setTheme(com.kevingil.wash.R.style.Theme_Kevin);}
+      	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
         // this changes the background color of the action bar
         myWebView = (WebView) findViewById(R.id.webViewHome);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading...", true);
@@ -87,7 +85,7 @@ public class Home extends SherlockActivity  {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = this.getSupportMenuInflater();
+       MenuInflater inflater = this.getMenuInflater();
        inflater.inflate(R.menu.menu_main, menu);
        return true;
     }

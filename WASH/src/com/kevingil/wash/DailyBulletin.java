@@ -1,18 +1,16 @@
 package com.kevingil.wash;
 
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.kevingil.wash.R;
-
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -24,7 +22,7 @@ import android.widget.ProgressBar;
 
 /// this all works so dont move for now :)
 
-public class DailyBulletin extends SherlockActivity {
+public class DailyBulletin extends Activity {
 	// some variables here:
     WebView myWebView;
 	ProgressBar progressBar;
@@ -36,7 +34,7 @@ public class DailyBulletin extends SherlockActivity {
       	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_bulletin);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         // this changes the background color of the action bar
        //  getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
         // this loads the web view 
@@ -110,7 +108,7 @@ public class DailyBulletin extends SherlockActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = this.getSupportMenuInflater();
+       MenuInflater inflater = this.getMenuInflater();
        inflater.inflate(R.menu.menu_main, menu);
        return true;
     }

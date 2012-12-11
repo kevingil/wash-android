@@ -1,29 +1,27 @@
 package com.kevingil.wash;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.kevingil.wash.R;
-
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class Social extends SherlockActivity {
+public class Social extends Activity {
 	WebView myWebView;
     
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-      	     this.setTheme(com.kevingil.wash.R.style.Theme_Kevin);}
+      	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facebook_groups);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewFacebookGroups);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "loading..", true);
@@ -56,7 +54,7 @@ public class Social extends SherlockActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = this.getSupportMenuInflater();
+       MenuInflater inflater = this.getMenuInflater();
        inflater.inflate(R.menu.menu_main, menu);
        return true;
     }

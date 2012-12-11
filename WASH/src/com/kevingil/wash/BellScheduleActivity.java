@@ -1,10 +1,9 @@
 package com.kevingil.wash;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.kevingil.wash.R;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,7 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class BellScheduleActivity extends SherlockActivity {
+public class BellScheduleActivity extends Activity {
 	WebView myWebView;
     
     public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class BellScheduleActivity extends SherlockActivity {
       	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bell_schedule);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         // getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
         // this loads the web view 
         myWebView = (WebView) findViewById(R.id.webViewBellSchedule);
@@ -57,7 +56,7 @@ public class BellScheduleActivity extends SherlockActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = this.getSupportMenuInflater();
+       MenuInflater inflater = this.getMenuInflater();
        inflater.inflate(R.menu.menu_main, menu);
        return true;
     }

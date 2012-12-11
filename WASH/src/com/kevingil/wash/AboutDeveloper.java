@@ -1,22 +1,19 @@
 package com.kevingil.wash;
 
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.kevingil.wash.R;
-
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-public class AboutDeveloper extends SherlockActivity {
+public class AboutDeveloper extends Activity {
     WebView myWebView;
 	ProgressBar progressBar;
 	WebSettings WebViewSettings;
@@ -25,20 +22,13 @@ public class AboutDeveloper extends SherlockActivity {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
    	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_developer);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.black_textured));
-        // this loads the web view 
+        setContentView(R.layout.activity_about_developer);getActionBar().setDisplayHomeAsUpEnabled(true);
         myWebView = (WebView) findViewById(R.id.webViewAboutDeveloper);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "", "le loading... lol", true);
-        //myWebView.setBackgroundResource(R.drawable.dark_gray_bg);
-        myWebView.setBackgroundColor(0);
-        myWebView.loadUrl("file:///android_asset/aboutdeveloper.html");
+        myWebView.setBackgroundColor(0);myWebView.loadUrl("file:///android_asset/aboutdeveloper.html");
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         WebViewSettings = myWebView.getSettings();
-        WebViewSettings.setSavePassword(true);
-        WebViewSettings.setSaveFormData(true);
-        // i dont mind the javascript vulnerabilities so don't erase!!
+        WebViewSettings.setSavePassword(true); WebViewSettings.setSaveFormData(true);
        myWebView.getSettings().setJavaScriptEnabled(true);
        myWebView.setWebViewClient(new MyWebViewClient(){
     	   @Override

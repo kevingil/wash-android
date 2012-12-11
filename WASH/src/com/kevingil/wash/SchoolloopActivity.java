@@ -1,10 +1,6 @@
 package com.kevingil.wash;
 
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,12 +8,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
-public class SchoolloopActivity extends SherlockActivity {
+public class SchoolloopActivity extends Activity {
 	
     WebView myWebView;
 	ProgressBar progressBar;
@@ -26,10 +25,10 @@ public class SchoolloopActivity extends SherlockActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
-      	     this.setTheme(com.kevingil.wash.R.style.Theme_Kevin);}
+      	     this.setTheme(R.style.Theme_Kevin);}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schoolloop);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         myWebView = (WebView) findViewById(R.id.webViewSchoolloop);
         final ProgressDialog webViewProgress = ProgressDialog.show(this, "loading...", "Your password will not be saved", true);
         //myWebView.setBackgroundResource(R.drawable.lightgray3);
@@ -89,7 +88,7 @@ public class SchoolloopActivity extends SherlockActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = this.getSupportMenuInflater();
+       MenuInflater inflater = this.getMenuInflater();
        inflater.inflate(R.layout.schoolloop_menu, menu);
        return true;
     }
