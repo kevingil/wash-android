@@ -13,5 +13,12 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" />
+    
+    <com.devspark.sidenavigation.SideNavigationView
+        android:id="@+id/home_side_navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        
+        
 
 </RelativeLayout>

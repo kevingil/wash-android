@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 public class SchoolloopActivity extends Activity {
@@ -37,12 +38,21 @@ public class SchoolloopActivity extends Activity {
         myWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         // settings 
         WebViewSettings = myWebView.getSettings();
-        WebViewSettings.setSavePassword(true);
-        WebViewSettings.setSaveFormData(true);
+        WebViewSettings.setSavePassword(true);WebViewSettings.setSaveFormData(true);
         WebViewSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new SchoolloopWebclientActivity(this){
+        myWebView.setWebViewClient(new WebViewClient(){
     	   @Override
     	   public void onPageFinished(WebView view, String url){
+    		   myWebView.loadUrl("javascript:"
+       		   		+ "document.body.style.background=\"white\";"
+       		   		+ "document.getElementById('page_title').style.display=\"none\";"
+       		   	    + "document.getElementById('container_footer').style.display=\"none\";"
+       		   	    + "document.getElementById('field_mobile').style.display=\"none\";"
+       		   	    + "document.getElementById('block_standard_left').style.display=\"none\";"
+       		   	    + "document.getElementById('container_header').style.display=\"none\";" 
+       		   	    + "document.getElementsByClass('block_text').style.width=\"100%\";" 
+          		   		);
+    		   
     		   webViewProgress.dismiss();
     	    }
     	   

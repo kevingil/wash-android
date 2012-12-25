@@ -11,8 +11,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -86,12 +84,7 @@ public class DailyBulletin extends Activity {
        WebViewSettings.setSaveFormData(true);
        WebViewSettings.setJavaScriptEnabled(true);
        // THIS WILL DIABLE HORIZONTAL SCROLL BECAUSE WASN NOT POSSIBLE WITH JAVASCRIPT INJECTION
-       myWebView.setOnTouchListener(new View.OnTouchListener() {
-    	   
-    	    public boolean onTouch(View v, MotionEvent event) {
-    	      return (event.getAction() == MotionEvent.ACTION_MOVE);
-    	    }
-    	});
+    
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -106,6 +99,7 @@ public class DailyBulletin extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
        MenuInflater inflater = this.getMenuInflater();

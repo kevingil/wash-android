@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">WASH</string>
@@ -14,5 +15,8 @@
     <string name="title_activity_daily_bulletin">Daily Bulletin</string>
     <string name="title_activity_splash">Splash</string>
     <string name="title_activity_schoolloop_webclient">schoolloop_webclient</string>
+    <string name="title_activity_slide_menu_test">SlideMenuTest</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="sm2">Schoolloop</string>
 
 </resources>
