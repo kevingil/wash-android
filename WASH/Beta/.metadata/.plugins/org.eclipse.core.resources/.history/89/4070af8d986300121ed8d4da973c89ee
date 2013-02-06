@@ -1,0 +1,45 @@
+<ScrollView 
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/home_root" 
+      android:layout_width="fill_parent"
+      android:layout_height="match_parent">
+      
+<com.kevingil.utils.DashboardLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="#ffffff" >
+    <!--  News Feed Button -->
+    <Button
+        android:id="@+id/btn_dashboard_schoolloop"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/schoolloop_logo"
+        android:text="Schoolloop" />
+ 
+    <!--  Friends Button -->
+    <Button
+        android:id="@+id/btn_dashboard_bulletin"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/db"
+        android:text="Bulletin" />
+ 
+    <!--  Messages Button -->
+    <Button
+        android:id="@+id/btn_dashboard_schedule"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/clock"
+        android:text="Schedule" />
+ 
+    <!--  Places Button -->
+    <Button
+        android:id="@+id/btn_dashboard_social"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/groups"
+        android:text="Social" />
+ 
+
+ 
+</com.kevingil.utils.DashboardLayout>
+
+ </ScrollView>

@@ -1,0 +1,63 @@
+package com.kevingil.slidelistviewheader;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+public class Main extends Activity {
+
+    private ListView listView1;
+    private ListView listView2;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Weather weather_data[] = new Weather[]
+        {
+            new Weather(R.drawable.ic_launcher, "one"),
+            new Weather(R.drawable.ic_launcher, "two"),
+            new Weather(R.drawable.ic_launcher, "three"),
+            new Weather(R.drawable.ic_launcher, "four"),
+            new Weather(R.drawable.ic_launcher, "five")
+        };
+        
+        WeatherAdapter adapter = new WeatherAdapter(this, 
+                R.layout.listview_item_row, weather_data);
+        
+        
+        listView1 = (ListView)findViewById(R.id.listView1);
+         
+        View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row, null);
+        listView1.addHeaderView(header);
+        
+        listView1.setAdapter(adapter);
+        
+        
+        Weather weather_data2[] = new Weather[]
+        {
+            new Weather(R.drawable.ic_launcher, "six"),
+            new Weather(R.drawable.ic_launcher, "seven"),
+            new Weather(R.drawable.ic_launcher, "eight"),
+            new Weather(R.drawable.ic_launcher, "nine"),
+            new Weather(R.drawable.ic_launcher, "ten")
+        };
+        
+        WeatherAdapter adapter2 = new WeatherAdapter(this, 
+                R.layout.listview_item_row, weather_data2);
+        
+        
+        listView2 = (ListView)findViewById(R.id.listView2);
+         
+        View header2 = (View)getLayoutInflater().inflate(R.layout.listview_header_row2, null);
+        listView2.addHeaderView(header2);
+        
+        listView2.setAdapter(adapter2);
+        
+        
+        
+        
+    }
+}
