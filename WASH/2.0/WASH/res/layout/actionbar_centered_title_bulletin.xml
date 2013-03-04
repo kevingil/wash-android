@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@null">
+
+        
+         <!-- <ImageButton
+               style="@style/TitleBarOperation"
+               android:id="@+id/ab_btn_home_as_up"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"
+               android:background="@null"
+               android:onClick="onHomeAsUpClicked"
+               android:paddingBottom="3dip"
+               android:paddingLeft="3dip"
+               android:src="@drawable/slide_menu_icon" />  -->  
+
+           
+           <TextView
+               android:id="@+id/ab_title_bulletin"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:gravity="center"
+               android:textStyle="bold"
+               android:textColor="#ff0000"
+               android:background="@null"
+               android:textSize="25sp"
+               android:text="bulletin" />
+           
+
+           <!-- <ImageButton
+               style="@style/TitleBarOperation"
+               android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"
+               android:background="@null"
+               android:onClick="onRightButtonClicked"
+               android:paddingBottom="3dip"
+               android:src="@null" />  -->
+        
+    </RelativeLayout>
