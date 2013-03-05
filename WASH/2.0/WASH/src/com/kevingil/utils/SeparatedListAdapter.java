@@ -21,10 +21,10 @@ public class SeparatedListAdapter extends BaseAdapter
 				headers = new ArrayAdapter<String>(context, R.layout.list_header);
 			}
 
-		public void addSection(String section, Adapter adapter)
+		public void addSection(String section, int LayoutresourceId, Adapter adapter)
 			{
 				this.headers.add(section);
-				this.sections.put(section, adapter);
+				this.sections.put(section, LayoutresourceId, adapter);
 			}
 
 		public Object getItem(int position)
