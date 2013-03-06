@@ -1,5 +1,5 @@
-George-Washington-HS
-====================
+George Washington High School
+=============================
 
 The app for students at George Washington High School
 
