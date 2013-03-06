@@ -12,10 +12,12 @@
        <item name="homeAsUpIndicator">@null</item>
        <item name="android:homeAsUpIndicator">@null</item>
        
+       <item name="android:windowBackground">@drawable/splash</item>
+       
     </style>
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar">
-       <item name="background">#111111</item>
-       <item name="android:background">#111111</item>
+       <item name="background">@drawable/bg_actionbar</item>
+       <item name="android:background">@drawable/bg_actionbar</item>
        
        <item name="icon">@drawable/no_color</item>
        <item name="android:icon">@drawable/no_color</item>

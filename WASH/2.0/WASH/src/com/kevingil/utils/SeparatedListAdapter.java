@@ -1,7 +1,9 @@
-package com.examples;
+package com.kevingil.utils ;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import com.kevingil.wash.R;
 
 import android.content.Context;
 import android.view.View;
@@ -21,10 +23,10 @@ public class SeparatedListAdapter extends BaseAdapter
 				headers = new ArrayAdapter<String>(context, R.layout.list_header);
 			}
 
-		public void addSection(String section, int LayoutresourceId, Adapter adapter)
+		public void addSection(String section, Adapter adapter)
 			{
 				this.headers.add(section);
-				this.sections.put(section, LayoutresourceId, adapter);
+				this.sections.put(section, adapter);
 			}
 
 		public Object getItem(int position)

@@ -4,11 +4,12 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="#222222">
+	android:background="#fff">
 
 	<ListView
 		android:id="@+id/list_journal"
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content"
+		android:listSelector="@drawable/selector_slidelist"/>
 	
 </LinearLayout>
