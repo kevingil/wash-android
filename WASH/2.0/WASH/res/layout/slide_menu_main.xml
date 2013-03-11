@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg_slidemenu">
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#fff">
 
-    <ListView
-        android:id="@+id/slide_menu_wash"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
-    <!-- 
-     <ListView
-        android:id="@+id/slide_menu_schoolloop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
-     <ListView
-        android:id="@+id/slide_menu_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
-         -->
-
-</RelativeLayout>
+	<ListView
+		android:id="@+id/list_journal"
+		android:background="#EBEBEB"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="13dip"
+		android:paddingLeft="15dip"
+		android:paddingRight="15dip"
+		android:scrollbars="none"
+		android:listSelector="@drawable/selector_slidelist"/>
+	
+</LinearLayout>

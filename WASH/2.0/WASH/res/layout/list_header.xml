@@ -6,9 +6,10 @@
 	android:layout_height="wrap_content"
 	android:paddingTop="2dip"
 	android:paddingBottom="2dip"
-	android:paddingLeft="5dip"
+	android:paddingLeft="7dip"
 	android:background="#fff"
 	android:textColor="#000"
-	android:gravity="center"
+	android:gravity="left"
 	style="?android:attr/listSeparatorTextViewStyle" />
 
+<!-- android:text="header" -->

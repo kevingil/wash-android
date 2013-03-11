@@ -20,8 +20,9 @@
 	android:layout_height="fill_parent"
 	android:paddingTop="12dip"
 	android:paddingBottom="12dip"
-	android:paddingLeft="17dip"
+	android:paddingLeft="20dip"
 	android:textAppearance="?android:attr/textAppearanceLarge"
 	android:textSize="35sp"
+	
 	android:textColor="@color/selector_slidelist_text"
 	/>

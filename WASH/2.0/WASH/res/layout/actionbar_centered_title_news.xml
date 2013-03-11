@@ -27,14 +27,14 @@
                android:src="@drawable/slide_menu_icon" />
 
            <TextView
-               android:id="@+id/ab_title_wash"
+               android:id="@+id/ab_title_news"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_alignParentTop="true"
                android:layout_centerHorizontal="true"
                android:background="@null"
                android:gravity="center"
-               android:text="WASH"
+               android:text="news"
                android:textColor="#ff0000"
                android:textSize="25sp"
                android:textStyle="bold" />

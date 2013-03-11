@@ -6,40 +6,37 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:background="@null">
-
-        
-         <!-- <ImageButton
-               style="@style/TitleBarOperation"
-               android:id="@+id/ab_btn_home_as_up"
-               android:layout_alignParentLeft="true"
-               android:layout_centerVertical="true"
-               android:background="@null"
-               android:onClick="onHomeAsUpClicked"
-               android:paddingBottom="3dip"
-               android:paddingLeft="3dip"
-               android:src="@drawable/slide_menu_icon" />  -->  
-
-           
-           <TextView
-               android:id="@+id/ab_title_wash"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_centerInParent="true"
-               android:gravity="center"
-               android:textStyle="bold"
-               android:textColor="#ff0000"
-               android:background="@null"
-               android:textSize="25sp"
-               android:text="info"/>
            
 
-           <!-- <ImageButton
+           <ImageButton
                style="@style/TitleBarOperation"
                android:layout_alignParentRight="true"
                android:layout_centerVertical="true"
                android:background="@null"
-               android:onClick="onRightButtonClicked"
                android:paddingBottom="3dip"
-               android:src="@null" />  -->
+               android:src="@null" />  
+
+           <ImageButton
+               android:id="@+id/btw_slidemenutoggle_main_left"
+               style="@style/TitleBarOperation"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"
+               android:background="@null"
+               android:paddingLeft="20dip"
+               android:gravity="left"
+               android:src="@drawable/slide_menu_icon" />
+
+           <TextView
+               android:id="@+id/ab_title_about"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:background="@null"
+               android:gravity="center"
+               android:text="about wash"
+               android:textColor="#ff0000"
+               android:textSize="25sp"
+               android:textStyle="bold" />
         
     </RelativeLayout>

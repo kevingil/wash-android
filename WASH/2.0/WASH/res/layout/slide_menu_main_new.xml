@@ -4,12 +4,24 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="#fff">
+	android:background="#EBEBEB">
+
+    <Button
+        android:id="@+id/btw_back_to_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="← back to dashboard"
+        android:background="#000"/>
 
 	<ListView
 		android:id="@+id/list_journal"
+		android:background="#EBEBEB"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:paddingTop="13dip"
+		android:paddingLeft="15dip"
+		android:paddingRight="15dip"
+		android:scrollbars="none"
 		android:listSelector="@drawable/selector_slidelist"/>
 	
 </LinearLayout>
