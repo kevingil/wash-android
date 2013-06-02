@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"> 
+    
+      <ListView
+         android:id="@+id/home_listview"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:cacheColorHint="#fff"
+		 android:paddingLeft="15dip"
+ 	  	 android:paddingRight="15dip"
+ 	 	 android:scrollbars="none"
+ 	 	 android:overScrollMode="never"
+         android:divider="@android:color/transparent"
+         android:dividerHeight="10.0sp"/>
+          
+</LinearLayout>
+
+<!-- 
+ 	 	 android:setOverscrollHeader="@drawable/overscroll_glow_top"
+ 	 	 android:setOverscrollFooter="@drawable/overscroll_glow_bottom" -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WASH</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_news">News</string>
+    <string name="title_activity_places">Places</string>
+    <string name="title_activity_food">Food</string>
+
+    <!-- side menu items -->
+    <!-- headers -->
+    <string name="header_1">SCHOOLLOOP</string>
+    <string name="header_2">WASH</string>
+    <string name="header_3">EXTRA</string>
+    <!-- schoolloop -->
+    <string name="schoolloop_1">grades</string>
+    <string name="schoolloop_2">mail</string>
+    <string name="schoolloop_3">news</string>
+    <string name="schoolloop_4">bulletin</string>
+    <!-- WASH -->
+    <string name="wash_1"></string>
+    <string name="wash_2"></string>
+    <string name="wash_3"></string>
+    <!-- extra -->
+    <string name="extra_1">about</string>
+    <string name="title_activity_school">School</string>
+    <string name="title_activity_privacy_policy">privacy policy</string>
+    <string name="title_activity_mail">Mail</string>
+
+</resources>
