@@ -50,7 +50,10 @@ public class News extends FeedActivity {
 */
 
 import com.tinymission.rss.FeedActivity;
-
+import com.tinymission.rss.Item;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -60,10 +63,13 @@ import android.widget.ImageButton;
 public class News extends FeedActivity {
 	
 	ImageButton btw_left;
+	Intent postIntent;
+	Uri postUrl;
+	final Context context = this;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle icicle) {
+		super.onCreate(icicle);
 		overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
 		   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
 		        this.setTheme(R.style.Theme_Kevin);
@@ -87,6 +93,22 @@ public class News extends FeedActivity {
 	}
 
 	@Override
+	protected void onFeedItemClick(Item item) {
+		postUrl = Uri.parse(item.getLink());
+		if (postUrl != null) {
+			/*
+			Intent intent = new Intent(Intent.ACTION_VIEW, url);
+			startActivity(intent);
+			*/
+			
+			// method from http://www.androidsnippets.com/how-to-pass-a-dynamic-url-to-a-webview-activity
+            postIntent = new Intent(context, Post.class);
+            postIntent.setData(Uri.parse(item.getLink()));
+            startActivity(postIntent);
+		}
+	}
+	
+	@Override
 	public int getListLayoutId() {
 		return R.layout.feed;
 	}
@@ -105,6 +127,11 @@ public class News extends FeedActivity {
 	public boolean isDateVisible() {
 		return true;
 	}
+	
+	@Override
+    public int showTitleAuthorOrBoth() {
+        return 2;
+    }
 
 	@Override
 	public String getFeedUrl() {

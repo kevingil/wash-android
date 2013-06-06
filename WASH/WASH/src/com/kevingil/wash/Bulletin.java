@@ -1,66 +1,31 @@
 package com.kevingil.wash;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.kevingil.ui.SeparatedListAdapter;
-import com.kevingil.wash.more.Info;
-import com.slidingmenu.lib.SlidingMenu;
 
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class Bulletin extends SherlockActivity {
-
-	// starts slide list ints
-	public final static String ITEM_TITLE = "title";
-	public final static String ITEM_CAPTION = "caption";
-	private final static String[] items_schoolloop = new String[]{"grades", "mail", "news", "bulletin"};
-	private final static String[] items_wash = new String[]{"schedule", "social", "places"};
-	private final static String[] items_info = new String[]{"about"};
-	private SeparatedListAdapter adapter;
-	private ListView SlideListView;
-	public Map<String, ?> createItem(String title, String caption)
-		{
-			Map<String, String> item = new HashMap<String, String>();
-			item.put(ITEM_TITLE, title);
-			item.put(ITEM_CAPTION, caption);
-			return item;
-		}
-	// ends slide list ints
 	
-	SlidingMenu mSlideMenu;
 	WebView mWebView;
 	WebSettings mWebViewSettings;
 	ProgressDialog mWebViewProgress;
-	ListView mListView;
 	ActionBar ab;
-	Toast stillloading;
+	//Toast stillloading;
 	
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
@@ -71,33 +36,20 @@ public class Bulletin extends SherlockActivity {
 		   }
 		   
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.slide_in_bottom, 0);
+		overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
 		setTitle("bulletin");
 		setContentView(R.layout.webview_generic);
 		setUpBulletinWebView();
-		setUpSlideMenu();
-		setUpSlideList();
 		setupActionBar();
 		
-		ImageButton btw_left = (ImageButton) findViewById(R.id.btw_slidemenutoggle_main_left);
-		btw_left.setOnClickListener(new OnClickListener() {
+		ImageButton btn_back = (ImageButton) findViewById(R.id.btn_back);
+		btn_back.setOnClickListener(new OnClickListener() {
 		    public void onClick(View v) { // action bar left button
-		    	mSlideMenu.toggle();
+		    	finish();
 		    }
 		});
 		
 	}
-    
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-        	mSlideMenu.toggle();
-            return true;
-        }
-        return true;
-    }
     
 	void setupActionBar() {
 		ab = getSupportActionBar();
@@ -109,10 +61,12 @@ public class Bulletin extends SherlockActivity {
 	
 	void setUpBulletinWebView(){
         mWebView  = (WebView) findViewById(R.id.generic_webview);
-        mWebViewProgress = ProgressDialog.show(this, null, "optimizing for mobile", true);
+        mWebViewProgress = ProgressDialog.show(this, null, "loading hun!", true);
         mWebView.loadUrl("http://gwhs-sfusd-ca.schoolloop.com/bulletin");
         mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         mWebView.setWebViewClient(new WebViewClient(){
+        	
+        	/*
         	public boolean onTouch(View v, MotionEvent event) {
         	    if (event.getAction() == MotionEvent.ACTION_DOWN) {
         	    	Context context = getApplicationContext();
@@ -125,10 +79,10 @@ public class Bulletin extends SherlockActivity {
         	    }
         	    return false;
         	}   
-        	
+        	*/
             @Override
             public void onPageFinished(WebView view, String url){
-            	
+            /*	
      		   mWebView.loadUrl("javascript:"
        		   		+ "$('head link, head style').remove();"
        		   		+ "document.body.style.background=\"white\";"
@@ -151,7 +105,7 @@ public class Bulletin extends SherlockActivity {
        		   	    + "document.getElementByTagName('tr').setAttribute(\"style\",\"width:100%\");"
        		   	    + "document.getElementById('block_wide_main').setAttribute(\"style\", \"width:100%;\");" 
           		   		);
-     		   
+     		   */
             	mWebViewProgress.dismiss();
              }
         });
@@ -178,105 +132,15 @@ public class Bulletin extends SherlockActivity {
             mWebView.goBack();
             return true;
         } else {
-        	Intent i = new Intent(Bulletin.this, Main.class);
-        	startActivity(i);
         	finish();
         }
         return super.onKeyDown(keyCode, event);
     }
-    
-	void setUpSlideMenu(){
-		mSlideMenu = new SlidingMenu(this); 
-		mSlideMenu.setMode(SlidingMenu.LEFT);
-		mSlideMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-		mSlideMenu.setShadowWidthRes(R.dimen.shadow_width);
-		//mSlideMenu.setShadowDrawable(R.drawable.shadow);
-		mSlideMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-		mSlideMenu.setBehindScrollScale(0.0f);
-		mSlideMenu.setFadeDegree(0.35f);
-		mSlideMenu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
-		mSlideMenu.setMenu(R.layout.slide_menu_main_new);
-	}
-
-public void setUpSlideList(){
-		
-		adapter = new SeparatedListAdapter(this);
-		ArrayAdapter<String> listadapter_schoolloop = new ArrayAdapter<String>(this, R.layout.list_item, items_schoolloop);
-		ArrayAdapter<String> listadapter_wash = new ArrayAdapter<String>(this, R.layout.list_item, items_wash);
-		ArrayAdapter<String> listadapter_info = new ArrayAdapter<String>(this, R.layout.list_item, items_info);
-				adapter.addSection("schoolloop", listadapter_schoolloop);
-				adapter.addSection("wash"      , listadapter_wash);
-				adapter.addSection("extra"      , listadapter_info);
-				SlideListView = (ListView) this.findViewById(R.id.list_journal);
-				SlideListView.setAdapter(adapter);
-				SlideListView.setOnItemClickListener(new OnItemClickListener()
-			{
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
-					
-					if(position == 0){
-						mSlideMenu.toggle();
-						} //header schoolloop
-
-	                if(position == 1){ // goes home
-	                	Intent i = new Intent(view.getContext(), Schoolloop.class);
-	                	startActivity(i);
-	                	finish();
-	                	} // l home
-	                if(position == 2){
-	                	mSlideMenu.toggle();
-	                	} // l mail
-	                if(position == 3){ //l news
-	                         Intent i = new Intent(view.getContext(), News.class);
-	                         startActivity(i);
-	                         finish();
-	                         }
-	                if(position == 4){ // l bulletin
-	                	mSlideMenu.toggle();
-	                         }
-	                if(position == 5){
-	                	mSlideMenu.toggle();
-	                	} //header wash
-	                if(position == 6){ // l schedule
-	                	Intent i = new Intent(view.getContext(), Schedule.class);
-                        startActivity(i);
-                        finish();
-	                             }
-	                if(position == 7){ // l social
-                        Intent i = new Intent(view.getContext(), Social.class);
-                        startActivity(i);
-                        finish();
-                        }
-	                if(position == 8){
-	                	Intent i = new Intent(view.getContext(), Places.class);
-                        startActivity(i);
-                        finish();
-	                	} // places
-	                if(position == 9){
-	                	mSlideMenu.toggle();
-	                } //header info
-	                if(position == 10){
-                        Intent i = new Intent(view.getContext(), Info.class);
-                        startActivity(i);
-                        finish();
-                        }
-					}
-			});
-				Button dashboard = (Button) findViewById(R.id.btw_back_to_dashboard);
-				
-				dashboard.setOnClickListener(new View.OnClickListener() {
-		            @Override
-		            public void onClick(View view) {
-		                Intent i = new Intent(getApplicationContext(), Main.class);
-		                startActivity(i);
-		                finish();
-		            }
-		        });
-	}
+	
 @Override
 public void finish(){
 	super.finish();
-	overridePendingTransition(0, R.anim.slide_out_down);
+	overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 }
 
 }

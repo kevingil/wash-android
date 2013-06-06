@@ -14,12 +14,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.kevingil.ui.ListAdapter;
 import com.kevingil.ui.ListItem;
-import com.kevingil.wash.more.Info;
 import com.slidingmenu.lib.SlidingMenu;
 //import com.kevingil.utils.Slide_List;
 //import com.kevingil.utils.Slide_List_Adapter;
@@ -100,16 +100,15 @@ public class Main extends SherlockActivity {
         ListItem item_data[] = new ListItem[]
         {
             new ListItem(R.drawable.ic_schoolloop, "Schoolloop"),
-            new ListItem(R.drawable.db, "Eagle News"),
-            new ListItem(R.drawable.clock, "Schedule"),
-            new ListItem(R.drawable.db, "Bulletin"),
-            new ListItem(R.drawable.groups, "Social"),
-            new ListItem(R.drawable.about_logo, "Places"),
-            new ListItem(R.drawable.about_logo, "About Us")
+            new ListItem(R.drawable.ic_eaglenews, "Eagle News"),
+            new ListItem(R.drawable.ic_schedule, "Schedule"),
+            new ListItem(R.drawable.ic_bulletin, "Bulletin"),
+            new ListItem(R.drawable.ic_social, "Social"),
+            new ListItem(R.drawable.ic_places, "Places"),
+            new ListItem(R.drawable.ic_settings, "Settings")
         };
         
-        ListAdapter adapter = new ListAdapter(this, 
-                R.layout.home_list_item, item_data);
+        ListAdapter adapter = new ListAdapter(this, R.layout.home_list_item, item_data);
         
         TextView textPadding = new TextView(this);
         mListView = (ListView)findViewById(R.id.home_listview);
@@ -131,6 +130,7 @@ public class Main extends SherlockActivity {
                 if(position == 2){
                 	Intent i = new Intent(view.getContext(), News.class);
                 	startActivity(i);
+                	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
                 	}
                 if(position == 3){
                 	Intent i = new Intent(view.getContext(), Schedule.class);
@@ -150,7 +150,7 @@ public class Main extends SherlockActivity {
                     startActivity(i);
                 	}
                 if(position == 7){
-                    Intent i = new Intent(view.getContext(), Info.class);
+                    Intent i = new Intent(view.getContext(), Settings.class);
                     startActivity(i);
                              }
 				}

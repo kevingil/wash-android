@@ -2,4 +2,5 @@
 <resources>
     <color name="windowcolor">#eee</color>
     <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
 </resources>

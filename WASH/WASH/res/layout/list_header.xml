@@ -4,11 +4,12 @@
 	android:id="@+id/list_header_title"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:paddingTop="2dip"
-	android:paddingBottom="2dip"
+	android:paddingTop="5dip"
+	android:paddingBottom="5dip"
 	android:paddingLeft="7dip"
-	android:background="#fff"
+	android:background="@color/transparent"
 	android:textColor="#000"
+	android:textStyle="bold"
 	android:gravity="left"
 	style="?android:attr/listSeparatorTextViewStyle" />
 

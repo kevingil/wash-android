@@ -6,7 +6,6 @@
         android:gravity="center"
         android:layout_gravity="center">
            
-
            <ImageButton
                style="@style/TitleBarOperation"
                android:layout_alignParentRight="true"
@@ -26,13 +25,13 @@
                android:src="@drawable/ic_back" />
 
            <TextView
-               android:id="@+id/ab_title_social"
+               android:id="@+id/ab_title_schedule"
                style="@style/ActionBarText"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_alignParentTop="true"
                android:layout_centerHorizontal="true"
                android:gravity="center"
-               android:text="social"/>
+               android:text="settings"/>
         
     </RelativeLayout>

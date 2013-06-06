@@ -28,5 +28,6 @@
     <string name="title_activity_school">School</string>
     <string name="title_activity_privacy_policy">privacy policy</string>
     <string name="title_activity_mail">Mail</string>
+    <string name="title_activity_post">Post</string>
 
 </resources>

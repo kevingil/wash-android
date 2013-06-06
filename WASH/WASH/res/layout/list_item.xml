@@ -18,11 +18,10 @@
 	android:id="@+id/list_item_title"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:paddingTop="12dip"
-	android:paddingBottom="12dip"
+	android:paddingTop="15dip"
+	android:paddingBottom="15dip"
 	android:paddingLeft="20dip"
 	android:textAppearance="?android:attr/textAppearanceLarge"
-	android:textSize="35sp"
-	
+	android:background="@drawable/selector_slidelist"
 	android:textColor="@color/selector_slidelist_text"
 	/>

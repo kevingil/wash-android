@@ -25,29 +25,6 @@ public class Webclient extends WebViewClient {
             context.startActivity(i);
             return true;
         }
-        /*
-        if(url.equals("kevin://openDailyBulletinActivity")){
-            Intent i = new Intent(context, DailyBulletin.class);
-            context.startActivity(i);
-            return true;
-        }
-        
-        if(url.equals("kevin://openFacebookGroupsActivity")){
-            Intent i = new Intent(context, Social.class);
-            context.startActivity(i);
-            return true;
-        }
-        if(url.equals("kevin://openAboutDeveloperActivity")){
-            Intent i = new Intent(context, AboutDeveloper.class);
-            context.startActivity(i);
-            return true;
-        }
-        if(url.equals("http://www.gwhs-sfusd-ca.schoolloop.com/")){
-            Intent i = new Intent(context, Home.class);
-            context.startActivity(i);
-            return true;
-        }
-        */
         
         return super.shouldOverrideUrlLoading(view, url);
         
