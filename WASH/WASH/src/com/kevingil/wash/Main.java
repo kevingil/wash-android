@@ -3,6 +3,8 @@ package com.kevingil.wash;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,31 +13,35 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
+import com.kevingil.ui.GridViewAdapter;
 import com.kevingil.ui.ListAdapter;
 import com.kevingil.ui.ListItem;
 import com.slidingmenu.lib.SlidingMenu;
-//import com.kevingil.utils.Slide_List;
-//import com.kevingil.utils.Slide_List_Adapter;
 
 public class Main extends SherlockActivity {
 	// ends slide list ints
+	GridView gridView;
 	SlidingMenu rSlideMenu;
 	WebView mWebView;
 	ProgressDialog mWebViewProgress;
 	WebSettings mWebViewSettings;
 	public ListView mListView;
-    ImageButton btn_schedule_back;
+    ImageButton btn_back_sliding;
     TextView mTitle;
-    ActionBar ab;
+    TextView sTitle;
+    ActionBar actionbar;
     LayoutInflater inflator;
 	
+	static final String[] gridViewItems = new String[] { 
+		"Schoolloop", "Eagle News","Schedule", "Bulletin", "Social", "Places", "Settings" };
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -44,17 +50,43 @@ public class Main extends SherlockActivity {
 		   }
 		   
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.scale_in, 0);
-		setTitle("home");
-		setContentView(R.layout.activity_main);
-		setupActionBar();
-		setUpSlideMenu();
-		listItems();
+		overridePendingTransition(R.anim.scale_in, 0); setTitle("home");
 		
+		if(isTablet(true)){
+			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
+			setContentView(R.layout.activity_main_tablet);
+			makeGridView();
+		} else {
+			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
+			setContentView(R.layout.activity_main);
+			setupActionBar();
+			makeListView();
+		}
+		
+		setupActionBar();
+		setUpSlideSchedule();
 	}
 
-    
-    void setUpSlideMenu() 
+    // return true if is tablet
+	private boolean isTablet(boolean b) {
+	    return (getBaseContext().getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+	    		>= Configuration.SCREENLAYOUT_SIZE_LARGE;
+	}
+	
+	// actionabr for both phone and tablet
+	void setupActionBar() {
+		actionbar = getSupportActionBar();
+		actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+		actionbar.setCustomView(R.layout.actionbar);
+		actionbar.setDisplayHomeAsUpEnabled(true);
+		
+		mTitle = (TextView) findViewById(R.id.ab_title);
+		mTitle.setText("WASH");
+		
+	}
+	
+	//for both phone and tablet
+    void setUpSlideSchedule() 
     {
 		rSlideMenu = new SlidingMenu(this); 
 		rSlideMenu.setMode(SlidingMenu.RIGHT);
@@ -66,8 +98,13 @@ public class Main extends SherlockActivity {
 		rSlideMenu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
 		rSlideMenu.setMenu(R.layout.slidemenu_schedule);
 		
-		btn_schedule_back = (ImageButton) findViewById(R.id.btn_schedule_back);
-		btn_schedule_back.setOnClickListener(new View.OnClickListener() {
+		sTitle = (TextView) findViewById(R.id.ab_title_sliding);
+		sTitle.setText("schedule");
+		
+		
+		btn_back_sliding = (ImageButton) findViewById(R.id.btn_back_sliding);
+		btn_back_sliding.setImageResource(R.drawable.ic_back);
+		btn_back_sliding.setOnClickListener(new View.OnClickListener() {
 		    @Override
             public void onClick(View view) {
               rSlideMenu.toggle();
@@ -85,18 +122,11 @@ public class Main extends SherlockActivity {
          
          
         
-    }
-    
-	void setupActionBar() {
-		ab = getSupportActionBar();
-		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
-		ab.setCustomView(R.layout.ab_main);
-		ab.setDisplayHomeAsUpEnabled(true);
-	}
+    }   
 
 	
 	@SuppressLint("NewApi")
-	void listItems(){
+	void makeListView(){
         ListItem item_data[] = new ListItem[]
         {
             new ListItem(R.drawable.ic_schoolloop, "Schoolloop"),
@@ -124,39 +154,82 @@ public class Main extends SherlockActivity {
 				// position 0 is the TextView used as padding, TextView textPadding = new TextView(this);
 				
 				if(position == 1){
-                	Intent i = new Intent(view.getContext(), Schoolloop.class);
+                	Intent i = new Intent(getBaseContext(), Schoolloop.class);
                 	startActivity(i);
 					}
                 if(position == 2){
-                	Intent i = new Intent(view.getContext(), News.class);
+                	Intent i = new Intent(getBaseContext(), News.class);
                 	startActivity(i);
                 	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
                 	}
                 if(position == 3){
-                	Intent i = new Intent(view.getContext(), Schedule.class);
+                	Intent i = new Intent(getBaseContext(), Schedule.class);
                     startActivity(i);
                 	//rSlideMenu.toggle();
                 	}
                 if(position == 4){
-                    Intent i = new Intent(view.getContext(), Bulletin.class);
+                    Intent i = new Intent(getBaseContext(), Bulletin.class);
                     startActivity(i);
                          }
                 if(position == 5){
-                    Intent i = new Intent(view.getContext(), Social.class);
+                    Intent i = new Intent(getBaseContext(), Social.class);
                     startActivity(i);
                          }
                 if(position == 6){
-                	Intent i = new Intent(view.getContext(), Places.class);
+                	Intent i = new Intent(getBaseContext(), Places.class);
                     startActivity(i);
                 	}
                 if(position == 7){
-                    Intent i = new Intent(view.getContext(), Settings.class);
+                    Intent i = new Intent(getBaseContext(), Settings.class);
                     startActivity(i);
                              }
 				}
 		});
    }
-	
+
+	public void makeGridView(){
+		gridView = (GridView) findViewById(R.id.gridView);
+		 
+		gridView.setAdapter(new GridViewAdapter(this, gridViewItems));
+ 
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				
+				if(position == 0){
+                	Intent i = new Intent(getBaseContext(), Schoolloop.class);
+                	startActivity(i);
+					}
+                if(position == 1){
+                	Intent i = new Intent(getBaseContext(), News.class);
+                	startActivity(i);
+                	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
+                	}
+                if(position == 2){
+                	Intent i = new Intent(getBaseContext(), Schedule.class);
+                    startActivity(i);
+                	//rSlideMenu.toggle();
+                	}
+                if(position == 3){
+                    Intent i = new Intent(getBaseContext(), Bulletin.class);
+                    startActivity(i);
+                         }
+                if(position == 4){
+                    Intent i = new Intent(getBaseContext(), Social.class);
+                    startActivity(i);
+                         }
+                if(position == 5){
+                	Intent i = new Intent(getBaseContext(), Places.class);
+                    startActivity(i);
+                	}
+                if(position == 6){
+                    Intent i = new Intent(getBaseContext(), Settings.class);
+                    startActivity(i);
+                             }
+				
+			}
+		});
+ 
+	}
 	
 	@Override
 	public void finish(){

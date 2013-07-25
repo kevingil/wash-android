@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
+
+<RelativeLayout android:id="@+id/listview_container"
+                android:layout_height="match_parent"
+                android:layout_width="325dp"
+                android:background="#444"
+                android:layout_alignParentTop="true">
+         <ListView android:id="@+id/listview_divided"
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:cacheColorHint="#fff"
+ 	               android:paddingLeft="15dip"
+  	   	           android:paddingRight="15dip"
+  	 	           android:scrollbars="none"
+  	 	           android:overScrollMode="never"
+                   android:divider="@android:color/transparent"
+                   android:dividerHeight="10.0sp"/>
+</RelativeLayout>
+
+<RelativeLayout android:id="@+id/webviewer_container"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_toRightOf="@+id/listview_container">    
+          <WebView android:id="@+id/webview_divided"
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"/>
+
+</RelativeLayout>
+</RelativeLayout>

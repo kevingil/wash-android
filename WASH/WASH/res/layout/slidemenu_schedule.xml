@@ -7,7 +7,7 @@
     <include
         android:layout_width="wrap_content"
         android:layout_height="49dip"
-        layout="@layout/ab_schedule_slide" />
+        layout="@layout/actionbar_sliding" />
 
     <include
         android:layout_width="match_parent"

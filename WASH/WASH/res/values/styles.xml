@@ -4,6 +4,10 @@
         <item name="android:layout_width">32dip</item>
         <item name="android:layout_height">49dip</item>
     </style>
+   
+    <style name="KevinDarkLayout">
+        <item name="android:background">#222</item>
+    </style>
   
     <style name="KevinActionBar">
         <item name="android:layout_height">49dip</item>

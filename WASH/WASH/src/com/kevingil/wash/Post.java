@@ -3,6 +3,7 @@ package com.kevingil.wash;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -38,7 +39,17 @@ public void onCreate(Bundle savedInstanceState) {
          getActionBar().hide();
          
         webView = (WebView) findViewById(R.id.post_webview);
-        mWebViewProgress = ProgressDialog.show(this, "", "", true);
+        
+        mWebViewProgress = new ProgressDialog(this);
+        mWebViewProgress.setMessage("Loading...");
+        mWebViewProgress.setCancelable(false);
+        mWebViewProgress.setButton(DialogInterface.BUTTON_NEGATIVE, "Hide", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        mWebViewProgress.show();
         webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(this.getIntent().getDataString());

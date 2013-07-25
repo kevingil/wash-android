@@ -62,7 +62,7 @@ import android.widget.ImageButton;
 
 public class News extends FeedActivity {
 	
-	ImageButton btw_left;
+	ImageButton btn_left;
 	Intent postIntent;
 	Uri postUrl;
 	final Context context = this;
@@ -77,8 +77,8 @@ public class News extends FeedActivity {
 			   getActionBar().hide();
 		   }
 		   
-			btw_left = (ImageButton) findViewById(R.id.btw_back);
-			btw_left.setOnClickListener(new OnClickListener() {
+		   btn_left = (ImageButton) findViewById(R.id.btw_back);
+		   btn_left.setOnClickListener(new OnClickListener() {
 			    public void onClick(View v) { // action bar left button
 			    	finish();
 			    }
