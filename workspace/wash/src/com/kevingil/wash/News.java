@@ -135,6 +135,6 @@ public class News extends FeedActivity {
 
 	@Override
 	public String getFeedUrl() {
-		return "http://theeaglenews.org/feed/";
+		return "http://gwhs.co/?feed=rss2";
 	}
 }
