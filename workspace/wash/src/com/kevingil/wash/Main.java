@@ -17,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -39,25 +40,37 @@ public class Main extends SherlockActivity {
     TextView sTitle;
     ActionBar actionbar;
     LayoutInflater inflator;
-	
-	static final String[] gridViewItems = new String[] { 
-		"Schoolloop", "Eagle News","Schedule", "Bulletin", "Social", "Places", "Settings" };
+	static final String[] gridViewItems = new String[] 
+			{ 
+		"Schoolloop",
+		"Eagle News",
+		"Schedule",
+		"Bulletin",
+		"Social",
+		"Places",
+		"Settings"
+		};
     
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		
-		   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		 
+		   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+		   {
 		        this.setTheme(R.style.Theme_Kevin);
 		   }
 		   
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.scale_in, 0); setTitle("home");
+		overridePendingTransition(R.anim.scale_in, 0);
+		setTitle("home");
 		
-		if(isTablet(true)){
+		if(isTablet(true))
+		{
 			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
 			setContentView(R.layout.activity_main_tablet);
 			makeGridView();
-		} else {
+		} else
+		{
 			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
 			setContentView(R.layout.activity_main);
 			setupActionBar();
@@ -69,13 +82,15 @@ public class Main extends SherlockActivity {
 	}
 
     // return true if is tablet
-	private boolean isTablet(boolean b) {
+	private boolean isTablet(boolean b)
+	{
 	    return (getBaseContext().getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
 	    		>= Configuration.SCREENLAYOUT_SIZE_LARGE;
 	}
 	
 	// actionabr for both phone and tablet
-	void setupActionBar() {
+	void setupActionBar()
+	{
 		actionbar = getSupportActionBar();
 		actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
 		actionbar.setCustomView(R.layout.actionbar);
@@ -105,9 +120,11 @@ public class Main extends SherlockActivity {
 		
 		btn_back_sliding = (ImageButton) findViewById(R.id.btn_back_sliding);
 		btn_back_sliding.setImageResource(R.drawable.ic_back);
-		btn_back_sliding.setOnClickListener(new View.OnClickListener() {
+		btn_back_sliding.setOnClickListener(new View.OnClickListener()
+		{
 		    @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+		    {
               rSlideMenu.toggle();
             }
         });
@@ -133,6 +150,7 @@ public class Main extends SherlockActivity {
             new ListItem(R.drawable.ic_schoolloop, "Schoolloop"),
             new ListItem(R.drawable.ic_eaglenews, "Eagle News"),
             new ListItem(R.drawable.ic_schedule, "Schedule"),
+            new ListItem(R.drawable.ic_launcher, "Capture"),
             new ListItem(R.drawable.ic_bulletin, "Bulletin"),
             new ListItem(R.drawable.ic_social, "Social"),
             new ListItem(R.drawable.ic_places, "Places"),
@@ -150,37 +168,51 @@ public class Main extends SherlockActivity {
         mListView.setOnItemClickListener(new OnItemClickListener()
 		{
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long duration)
+			{
 				
 				// position 0 is the TextView used as padding, TextView textPadding = new TextView(this);
 				
-				if(position == 1){
+				if(position == 1)
+				{
                 	Intent i = new Intent(getBaseContext(), Schoolloop.class);
                 	startActivity(i);
 					}
-                if(position == 2){
+                if(position == 2)
+                {
                 	Intent i = new Intent(getBaseContext(), News.class);
                 	startActivity(i);
-                	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
+                	//Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
                 	}
-                if(position == 3){
+                if(position == 3)
+                {
                 	Intent i = new Intent(getBaseContext(), Schedule.class);
                     startActivity(i);
                 	//rSlideMenu.toggle();
                 	}
-                if(position == 4){
+                if(position == 4)
+                {
                     Intent i = new Intent(getBaseContext(), Bulletin.class);
                     startActivity(i);
                          }
-                if(position == 5){
+                if(position == 5)
+                {
+                    //Intent i = new Intent(getBaseContext(), Bulletin.class);
+                    //startActivity(i);
+                	Toast.makeText(getApplicationContext(), "Not yet, force closes", Toast.LENGTH_LONG).show();
+                 }
+                if(position == 6)
+                {
                     Intent i = new Intent(getBaseContext(), Social.class);
                     startActivity(i);
                          }
-                if(position == 6){
+                if(position == 7)
+                {
                 	Intent i = new Intent(getBaseContext(), Places.class);
                     startActivity(i);
                 	}
-                if(position == 7){
+                if(position == 8)
+                {
                     Intent i = new Intent(getBaseContext(), Settings.class);
                     startActivity(i);
                              }
@@ -190,39 +222,49 @@ public class Main extends SherlockActivity {
 
 	public void makeGridView(){
 		gridView = (GridView) findViewById(R.id.gridView);
-		 
 		gridView.setAdapter(new GridViewAdapter(this, gridViewItems));
- 
 		gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
 				
-				if(position == 0){
+				if(position == 0)
+				{
                 	Intent i = new Intent(getBaseContext(), Schoolloop.class);
                 	startActivity(i);
 					}
-                if(position == 1){
+                if(position == 1)
+                {
                 	Intent i = new Intent(getBaseContext(), News.class);
                 	startActivity(i);
                 	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
                 	}
-                if(position == 2){
+                if(position == 2)
+                {
                 	Intent i = new Intent(getBaseContext(), Schedule.class);
                     startActivity(i);
                 	//rSlideMenu.toggle();
                 	}
-                if(position == 3){
+                if(position == 3)
+                {
+                	Toast.makeText(getApplicationContext(), "Doesn't work yet.", Toast.LENGTH_LONG).show();
+                	}
+                if(position == 4)
+                {
                     Intent i = new Intent(getBaseContext(), Bulletin.class);
                     startActivity(i);
                          }
-                if(position == 4){
+                if(position == 5)
+                {
                     Intent i = new Intent(getBaseContext(), Social.class);
                     startActivity(i);
                          }
-                if(position == 5){
+                if(position == 6)
+                {
                 	Intent i = new Intent(getBaseContext(), Places.class);
                     startActivity(i);
                 	}
-                if(position == 6){
+                if(position == 7)
+                {
                     Intent i = new Intent(getBaseContext(), Settings.class);
                     startActivity(i);
                              }

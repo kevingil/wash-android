@@ -34,8 +34,8 @@ public class Settings extends SherlockActivity {
 	public  final static String   ITEM_TITLE        = "title";
 	public  final static String   ITEM_CAPTION      = "caption";
 	private final static String[] items_data        = new String[]{"Delete web data"};
-	private final static String[] items_theme       = new String[]{"dark", "light"};
-	private String version; // print the app version as a string in the list view
+	private String version; 
+	private String[] items_support;
 	private SeparatedListAdapter adapter;
 	private ListView mListView;
 	public Map<String, ?> createItem(String title, String caption)
@@ -78,7 +78,7 @@ public class Settings extends SherlockActivity {
 		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 	}
 	
-	public void setUpSettingsItems(){
+	void setUpSettingsItems(){
 		
 		try {
 		   version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
@@ -86,14 +86,12 @@ public class Settings extends SherlockActivity {
 		    Log.e("tag", e.getMessage());
 		}
 		
-		final String[] items_support     = new String[]{"Version " + version , "Send us Feedback", "Terms of Service", "Privacy Policy", "Share our app!"};
+		items_support = new String[]{"Version " + version , "Send us Feedback", "Terms of Service", "Privacy Policy", "Share our app!"};
 		
 		adapter = new SeparatedListAdapter(this);
 		ArrayAdapter<String> listadapter_schoolloop = new ArrayAdapter<String>(this, R.layout.list_item, items_data);
-		ArrayAdapter<String> listadapter_wash = new ArrayAdapter<String>(this, R.layout.list_item, items_theme);
 		ArrayAdapter<String> listadapter_info = new ArrayAdapter<String>(this, R.layout.list_item, items_support);
 				adapter.addSection("Data", listadapter_schoolloop);
-				adapter.addSection("Themes"      , listadapter_wash);
 				adapter.addSection("Support"      , listadapter_info);
 				
 				TextView textPadding = new TextView(this); // text for padding, no other use
@@ -123,17 +121,10 @@ public class Settings extends SherlockActivity {
 					}
 					
 					if(position == 3){
-						Toast.makeText(getApplicationContext(), "theme already set", Toast.LENGTH_LONG).show();
-					}
-					if(position == 4){
-						Toast.makeText(getApplicationContext(), "sorry! not yet :/", Toast.LENGTH_LONG).show();
-					}
-					
-					if(position == 6){
 						Toast.makeText(getApplicationContext(), "yeah! v" + version + " ftw! :D", Toast.LENGTH_LONG).show();
 					}
 					
-					if(position == 7){ // send email for feedback
+					if(position == 4){ // send email for feedback
 						
 						feedback = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:kevingil.wash@gmail.com"));
 						feedback.putExtra(Intent.EXTRA_SUBJECT, "Feedback on WASH app");
@@ -141,11 +132,8 @@ public class Settings extends SherlockActivity {
 						startActivity(Intent.createChooser(feedback, "Send us feedback!"));
 						
 						}
-					if(position == 8 || position == 9){
-						Toast.makeText(getApplicationContext(), "wait for next update", Toast.LENGTH_LONG).show();
-					}
 					
-					if(position ==10){ // share the app to other sources
+					if(position ==7){ // share the app to other sources
 						
 						shareapp = new Intent(Intent.ACTION_SEND);
 						shareapp.setType("text/plain");

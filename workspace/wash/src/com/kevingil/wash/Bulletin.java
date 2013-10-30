@@ -1,7 +1,7 @@
 package com.kevingil.wash;
 
 
-import android.annotation.TargetApi;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -26,8 +26,7 @@ public class Bulletin extends SherlockActivity {
 	ProgressDialog mWebViewProgress;
 	ActionBar ab;
 	//Toast stillloading;
-	
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
