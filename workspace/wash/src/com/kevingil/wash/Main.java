@@ -17,7 +17,8 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
+import com.kevingil.camera.*;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -45,11 +46,62 @@ public class Main extends SherlockActivity {
 		"Schoolloop",
 		"Eagle News",
 		"Schedule",
+		"Capture",
 		"Bulletin",
 		"Social",
 		"Places",
 		"Settings"
 		};
+	
+	OnItemClickListener itemListeners = new OnItemClickListener()
+	{
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long duration)
+		{
+			// position 0 is the TextView used as padding, TextView textPadding = new TextView(this);
+			if(position == 1)
+			{
+            	Intent i = new Intent(getBaseContext(), Schoolloop.class);
+            	startActivity(i);
+				}
+            if(position == 2)
+            {
+            	Intent i = new Intent(getBaseContext(), News.class);
+            	startActivity(i);
+            	}
+            if(position == 3)
+            {
+            	Intent i = new Intent(getBaseContext(), Schedule.class);
+                startActivity(i);
+            	}
+            if(position == 4)
+            {
+                Intent i = new Intent(getBaseContext(), CameraActivity.class);
+                startActivity(i);
+             }
+            if(position == 5)
+            {
+                Intent i = new Intent(getBaseContext(), Bulletin.class);
+                startActivity(i);
+                     }
+
+            if(position == 6)
+            {
+                Intent i = new Intent(getBaseContext(), Social.class);
+                startActivity(i);
+                     }
+            if(position == 7)
+            {
+            	Intent i = new Intent(getBaseContext(), Places.class);
+                startActivity(i);
+            	}
+            if(position == 8)
+            {
+                Intent i = new Intent(getBaseContext(), Settings.class);
+                startActivity(i);
+                         }
+			}
+	};
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -61,14 +113,15 @@ public class Main extends SherlockActivity {
 		   }
 		   
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.scale_in, 0);
-		setTitle("home");
+		//overridePendingTransition(R.anim.scale_in, 0);
+		setTitle("The Eagle");
 		
 		if(isTablet(true))
 		{
 			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
 			setContentView(R.layout.activity_main_tablet);
 			makeGridView();
+			
 		} else
 		{
 			setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
@@ -165,112 +218,13 @@ public class Main extends SherlockActivity {
         mListView.addHeaderView(textPadding);
         mListView.addFooterView(textPadding);
         mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new OnItemClickListener()
-		{
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long duration)
-			{
-				
-				// position 0 is the TextView used as padding, TextView textPadding = new TextView(this);
-				
-				if(position == 1)
-				{
-                	Intent i = new Intent(getBaseContext(), Schoolloop.class);
-                	startActivity(i);
-					}
-                if(position == 2)
-                {
-                	Intent i = new Intent(getBaseContext(), News.class);
-                	startActivity(i);
-                	//Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
-                	}
-                if(position == 3)
-                {
-                	Intent i = new Intent(getBaseContext(), Schedule.class);
-                    startActivity(i);
-                	//rSlideMenu.toggle();
-                	}
-                if(position == 4)
-                {
-                    Intent i = new Intent(getBaseContext(), Bulletin.class);
-                    startActivity(i);
-                         }
-                if(position == 5)
-                {
-                    //Intent i = new Intent(getBaseContext(), Bulletin.class);
-                    //startActivity(i);
-                	Toast.makeText(getApplicationContext(), "Not yet, force closes", Toast.LENGTH_LONG).show();
-                 }
-                if(position == 6)
-                {
-                    Intent i = new Intent(getBaseContext(), Social.class);
-                    startActivity(i);
-                         }
-                if(position == 7)
-                {
-                	Intent i = new Intent(getBaseContext(), Places.class);
-                    startActivity(i);
-                	}
-                if(position == 8)
-                {
-                    Intent i = new Intent(getBaseContext(), Settings.class);
-                    startActivity(i);
-                             }
-				}
-		});
+        mListView.setOnItemClickListener( itemListeners );
    }
 
 	public void makeGridView(){
 		gridView = (GridView) findViewById(R.id.gridView);
 		gridView.setAdapter(new GridViewAdapter(this, gridViewItems));
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-			{
-				
-				if(position == 0)
-				{
-                	Intent i = new Intent(getBaseContext(), Schoolloop.class);
-                	startActivity(i);
-					}
-                if(position == 1)
-                {
-                	Intent i = new Intent(getBaseContext(), News.class);
-                	startActivity(i);
-                	//Toast.makeText(getApplicationContext(), "can't go in there yet wuv! :)", Toast.LENGTH_LONG).show();
-                	}
-                if(position == 2)
-                {
-                	Intent i = new Intent(getBaseContext(), Schedule.class);
-                    startActivity(i);
-                	//rSlideMenu.toggle();
-                	}
-                if(position == 3)
-                {
-                	Toast.makeText(getApplicationContext(), "Doesn't work yet.", Toast.LENGTH_LONG).show();
-                	}
-                if(position == 4)
-                {
-                    Intent i = new Intent(getBaseContext(), Bulletin.class);
-                    startActivity(i);
-                         }
-                if(position == 5)
-                {
-                    Intent i = new Intent(getBaseContext(), Social.class);
-                    startActivity(i);
-                         }
-                if(position == 6)
-                {
-                	Intent i = new Intent(getBaseContext(), Places.class);
-                    startActivity(i);
-                	}
-                if(position == 7)
-                {
-                    Intent i = new Intent(getBaseContext(), Settings.class);
-                    startActivity(i);
-                             }
-				
-			}
-		});
+		gridView.setOnItemClickListener( itemListeners );
  
 	}
 	
