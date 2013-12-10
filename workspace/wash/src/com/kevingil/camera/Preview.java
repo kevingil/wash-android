@@ -27,6 +27,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback { // <1>
   public void surfaceCreated(SurfaceHolder holder) {
     // The Surface has been created, acquire the camera and tell it where to rae
 	  camera = getCamera();
+	  camera.setDisplayOrientation(90);
     try {
       camera.setPreviewDisplay(holder);
 

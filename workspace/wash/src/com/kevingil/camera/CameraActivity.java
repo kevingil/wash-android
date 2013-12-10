@@ -8,8 +8,10 @@ import java.io.IOException;
 import android.app.Activity;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -19,34 +21,47 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
 import com.kevingil.wash.R;
 
 
-public class CameraActivity extends Activity implements OnClickListener, OnTouchListener{
+public class CameraActivity extends SherlockActivity implements OnClickListener, OnTouchListener{
 	
 	private static final String TAG = "Capture";
 	private View mainFrame;
 	
-	private Button buttonClick, buttonDelete, buttonGallery; 
+	private ImageButton buttonClick, buttonDelete, buttonGallery; 
 	private boolean pictureTakenFlag = false;
 	private boolean goingOut = false; 
 	private long timeStamp;
 	private String extStorageDirectory;
 	
+	TextView mTitle;
 	Preview preview;
+	ImageButton btn_back;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);		
+		   if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+		   {
+		        this.setTheme(R.style.Theme_Kevin_TransparentActionBar);
+		   }
+		super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
 		setContentView(R.layout.activity_camera);
+		//setupActionBar();
+		getSupportActionBar().hide();
 
 		if(!isExternalStoragePresent()){
 			Toast.makeText(this, "No External Storage Found", Toast.LENGTH_LONG).show();		
 		}
 		
-		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/DCIM/Camera/homework");
+		File folder = new File(Environment.getExternalStorageDirectory().toString()+"/DCIM/Homework");
 		if(!folder.exists())
 			folder.mkdirs();
 		extStorageDirectory = folder.toString();
@@ -57,12 +72,12 @@ public class CameraActivity extends Activity implements OnClickListener, OnTouch
 		mainFrame = (FrameLayout)findViewById(R.id.preview);
 		mainFrame.setOnTouchListener(this);
 		
-		buttonClick = (Button) findViewById(R.id.buttonClick);
+		buttonClick = (ImageButton) findViewById(R.id.buttonTakePicture);
 		buttonClick.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) { // <5>
 				if (!pictureTakenFlag) {
 					timeStamp = System.currentTimeMillis();
-					preview.camera.takePicture(shutterCallback, rawCallback, jpegCallback);
+					takeFocusedPicture();
 					buttonClick.setBackgroundResource(R.drawable.newpic);
 					buttonDelete.setClickable(true);					
 				} else {
@@ -76,7 +91,7 @@ public class CameraActivity extends Activity implements OnClickListener, OnTouch
 		});
 
 		
-		buttonDelete = (Button) findViewById(R.id.buttonDelete);
+		buttonDelete = (ImageButton) findViewById(R.id.buttonDelete);
 		buttonDelete.setClickable(false); 
 		buttonDelete.setOnClickListener(new	OnClickListener() { 
 			public void onClick(View v) { // <5> 
@@ -90,7 +105,7 @@ public class CameraActivity extends Activity implements OnClickListener, OnTouch
 			} 
 		});	
 
-		buttonGallery = (Button) findViewById(R.id.buttonGallery);
+		buttonGallery = (ImageButton) findViewById(R.id.buttonGallery);
 		buttonGallery.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) { 
 				Intent intent = new Intent();
@@ -187,24 +202,65 @@ public class CameraActivity extends Activity implements OnClickListener, OnTouch
 		}
 	};
 
-	public void onClick(View v) {
+	public void onClick(View v)
+	{
 		Camera.Parameters p = preview.camera.getParameters();
 		
 		preview.camera.setParameters(p);
 		try {
         	preview.camera.setPreviewDisplay(preview.getHolder());
         } catch (Exception e) { }
-
+		preview.camera.setDisplayOrientation(90);
         preview.camera.startPreview();
 	}
 
-	public boolean onTouch(View v, MotionEvent me) {
+	public boolean onTouch(View v, MotionEvent me)
+	{
 		if(!pictureTakenFlag){
 			if(me.getAction()==MotionEvent.ACTION_DOWN){
 				//TODO add auto focus
+				preview.camera.autoFocus(null);
+				preview.camera.startPreview();
 			}
 		}
 		return false;
 	}
+	
+	// UI Methods
+	void setupActionBar()
+	{
+		ActionBar actionbar = getSupportActionBar();
+		actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+		actionbar.setCustomView(R.layout.actionbar_transparent);
+		actionbar.setDisplayHomeAsUpEnabled(true);
+		
+		mTitle = (TextView) findViewById(R.id.ab_title);
+		mTitle.setText("Capture");
+		
+		btn_back = (ImageButton) findViewById(R.id.btn_back);
+		btn_back.setImageResource(R.drawable.ic_back);
+		btn_back.setOnClickListener(new OnClickListener() {
+		    public void onClick(View v) { // action bar left button
+		    	finish();
+		    }
+		});
+		
+	}
+	void takeFocusedPicture()
+	{
+			preview.camera.autoFocus(new AutoFocusCallback() {
+		        @Override
+		        public void onAutoFocus(boolean success, Camera camera) {
+		        	preview.camera.takePicture(shutterCallback, rawCallback, jpegCallback);
+		        }
+		    }); 
+	}
+	
+	@Override
+	public void finish(){
+		super.finish();
+		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+	}
+	
 
 }

@@ -21,6 +21,14 @@
         <item name="android:background">@null</item>
     </style> 
    
+    
+    <style name="KevinActionBarTransparent">
+        <item name="android:layout_height">49dip</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    
+    
+  <!-- Regular Action Bar -->
     <style name="Theme.Kevin" parent="Theme.Sherlock">
        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
@@ -32,6 +40,7 @@
        <item name="android:cacheColorHint">#EBEBEB</item>
        
     </style>
+    
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.ActionBar">
        <item name="background">#eee</item>
        <item name="android:background">#eee</item>
@@ -45,6 +54,40 @@
        <item name="subtitleTextStyle">@style/NoTitleText</item>
        <item name="android:subtitleTextStyle">@style/NoTitleText</item>
     </style>
+    
+    <!-- Transparent Action Bar -->
+    
+    <style name="Theme.Kevin.TransparentActionBar" parent="Theme.Sherlock">
+       <item name="actionBarStyle">@style/Widget.Transparent.ActionBar</item>
+       <item name="android:actionBarStyle">@style/Widget.Transparent.ActionBar</item>
+       
+       <item name="homeAsUpIndicator">@null</item>
+       <item name="android:homeAsUpIndicator">@null</item>
+       
+       <item name="android:windowBackground">@color/windowcolor</item>
+       <item name="android:cacheColorHint">#EBEBEB</item>
+       
+    </style>
+    
+    <style name="Widget.Transparent.ActionBar" parent="Widget.Sherlock.ActionBar">
+       <item name="background">@color/transparent</item>
+       <item name="android:background">@color/transparent</item>
+       
+       <item name="icon">@drawable/no_color</item>
+       <item name="android:icon">@drawable/no_color</item>
+       
+       <item name="titleTextStyle">@style/NoTitleText</item>
+       <item name="android:titleTextStyle">@style/NoTitleText</item>
+       
+       <item name="subtitleTextStyle">@style/NoTitleText</item>
+       <item name="android:subtitleTextStyle">@style/NoTitleText</item>
+
+       <item name="android:windowActionBarOverlay">true</item>
+       <item name="windowActionBarOverlay">true</item>
+    </style>
+    
+
+    
     
     <style name="Theme.Kevin.NoActionBar" parent="Theme.Kevin">
         <item name="android:windowActionBar">false</item>

@@ -93,7 +93,8 @@ public class News extends FeedActivity {
 	}
 
 	@Override
-	protected void onFeedItemClick(Item item) {
+	protected void onFeedItemClick(Item item)
+	{
 		postUrl = Uri.parse(item.getLink());
 		if (postUrl != null) {
 			/*

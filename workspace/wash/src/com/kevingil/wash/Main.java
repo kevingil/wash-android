@@ -203,7 +203,7 @@ public class Main extends SherlockActivity {
             new ListItem(R.drawable.ic_schoolloop, "Schoolloop"),
             new ListItem(R.drawable.ic_eaglenews, "Eagle News"),
             new ListItem(R.drawable.ic_schedule, "Schedule"),
-            new ListItem(R.drawable.ic_launcher, "Capture"),
+            new ListItem(R.drawable.ic_capture, "Capture"),
             new ListItem(R.drawable.ic_bulletin, "Bulletin"),
             new ListItem(R.drawable.ic_social, "Social"),
             new ListItem(R.drawable.ic_places, "Places"),
