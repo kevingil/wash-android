@@ -4,4 +4,6 @@ George Washington High School
 
 The app for students at George Washington High School
 
-Dependecies are SlidingMenu library and Action Bar Sherlock
+## Third-party Libraries
+
+*[slidingmenu](https://github.com/jfeinstein10/SlidingMenu) by Jeremy Feinstein - Apache v2
