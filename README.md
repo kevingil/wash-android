@@ -4,6 +4,5 @@ George Washington High School
 
 The app for students at George Washington High School
 
-## Third-party Libraries
 
-*[slidingmenu](https://github.com/jfeinstein10/SlidingMenu) by Jeremy Feinstein - Apache v2
+end of support as of 2015.
