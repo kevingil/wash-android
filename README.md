@@ -1,4 +1,4 @@
-This app is no longer in development and has been removed from the Google Play Store.
+This app is no longer in development as of 2015 and has been removed from the Google Play Store as of 2017
 
 ______________________
 
@@ -8,5 +8,3 @@ George Washington High School
 
 The app for students at George Washington High School
 
-
-end of support as of 2015.
