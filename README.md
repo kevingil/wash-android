@@ -1,6 +1,6 @@
 This app is no longer in development and has been removed from the Google Play Store.
 
-_____________________________
+______________________
 
 George Washington High School
 =============================
